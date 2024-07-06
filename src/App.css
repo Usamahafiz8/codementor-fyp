@@ -1,0 +1,111 @@
+/* General body styling */
+
+/* App.css or the main CSS file */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('/src/Images/masab.png'); /* Adjust the path as needed */
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center; /* Center the image */
+  background-attachment: fixed; /* Fixed background */
+  background-repeat: no-repeat; /* Prevent repeating the image */
+}
+
+
+/* Navbar styling */
+.navbar {
+  margin-bottom: 20px;
+}
+
+/* Main content styling */
+.main-content {
+  padding: 20px;
+}
+
+/* Footer styling (if you have a footer) */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Custom button styling (if needed) */
+.btn-custom {
+  background-color: #0056b3;
+  color: white;
+}
+
+.btn-custom:hover {
+  background-color: #004494;
+}
+
+/* Additional custom styles */
+/* Add your custom styles here to further customize the appearance of your app */
+
+/* Custom gradient for the navbar */
+.navbar-custom {
+  background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+}
+
+/* Custom styling for navbar links */
+.nav-link {
+  color: white!important;
+  transition: color 0.3s ease-out;
+}
+
+.nav-link:hover {
+  color: #ddd!important;
+  background-color: transparent;
+}
+
+/* Sidebar styling */
+.sidebar-custom {
+  background-color: #f8f9fa; /* A light grey background */
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.sidebar-custom a {
+  color: #333;
+  transition: all 0.3s ease-out;
+  padding: 0.5rem 1rem;
+  display: block;
+  text-decoration: none;
+}
+
+.sidebar-custom a:hover {
+  background-color: #ddd;
+  padding-left: 1.5rem;
+}
+
+/* Module cards styling */
+.card-module {
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.card-module:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Make the 'Register Now' button more prominent */
+.btn-register-now {
+  background-color: #5cb85c; /* Bootstrap's btn-success color */
+  border-color: #4cae4c; /* Darken for border */
+  padding: 0.75rem 1.25rem;
+  font-size: 1.25rem;
+  border-radius: 0.3rem;
+  transition: background-color 0.3s ease-out;
+}
+
+.btn-register-now:hover {
+  background-color: #449d44; /* Slightly darker on hover */
+}
+
+/* Additional styling */
+/* ... */

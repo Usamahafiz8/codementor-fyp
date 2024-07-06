@@ -1,0 +1,8 @@
+/* ProgressMonitoring.css */
+.chart-placeholder {
+  min-height: 200px; /* Ensures the chart area is visible even when empty */
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  /* Placeholder styling - Replace with actual chart styling as needed */
+}

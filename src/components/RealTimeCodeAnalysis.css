@@ -1,0 +1,5 @@
+/* RealTimeCodeAnalysis.css */
+.analysis-result {
+  min-height: 150px; /* Ensures the result box is visible even when empty */
+  white-space: pre-wrap; /* Preserves spacing and formatting for code output */
+}

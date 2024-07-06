@@ -1,0 +1,18 @@
+/* Card Enhancements */
+.card:hover {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #f8f9fa; /* Example - very light background change */
+}
+
+/* Typography */
+.card-title {
+  font-weight: 600; /* Slightly bolder title */
+}
+
+/* Spacing */
+.card {
+  margin-bottom: 20px; /* More space between cards */
+}
+.card-body {
+  padding: 15px; /* More internal padding */
+}
