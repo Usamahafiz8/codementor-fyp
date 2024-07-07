@@ -1,63 +1,78 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Spinner, Button } from 'react-bootstrap';
-import './Tutorials.css'; 
+import React, { useState, useEffect } from "react";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  Spinner,
+  Button,
+  Modal,
+} from "react-bootstrap";
+import "./Tutorials.css";
+import { mockData } from "./JavatotorialData";
 
 function Tutorials() {
-  const [isLoading, setIsLoading] = useState(true); // Start with loading state
+  const [tutorials, setTutorials] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // Mock Data (Replace with backend calls later)
-  const mockTutorials = [
-    { 
-      id: 1, 
-      title: "Introduction to Java", 
-      description: "Learn the basics of Java programming...",
-      difficulty: "Beginner",
-      // Add an image URL later 
-    },
-    // Add more mock tutorial objects as needed
-  ];
+  const [showModal, setShowModal] = useState(false);
+  const [selectedTutorial, setSelectedTutorial] = useState(null);
 
   useEffect(() => {
-    // Simulate slight delay for demonstration
-    setTimeout(() => {
-      setIsLoading(false); // Update loading state
-    }, 1000); // 1-second delay
+    const fetchTutorials = async () => {
+      try {
+        // Mock data for demonstration
+
+        setTutorials(mockData);
+        setIsLoading(false);
+      } catch (error) {
+        setError(error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchTutorials();
   }, []);
+
+  const openModal = (tutorial) => {
+    setSelectedTutorial(tutorial);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <Container className="my-5">
       <h1 className="text-center mb-4">Learning Resources</h1>
 
-      {/* Filter Options (Add implementation later) */}
-      {/* <div className="mb-3"> ... Add filtering here ...</div> */}
-
-      {isLoading && ( 
+      {isLoading && (
         <div className="text-center">
-          <Spinner animation="border" /> Loading Tutorials... 
+          <Spinner animation="border" /> Loading Tutorials...
         </div>
       )}
 
-      {error && ( 
+      {error && (
         <div className="text-center text-danger">Error: {error.message}</div>
       )}
 
       {!isLoading && !error && (
-        <Row xs={1} md={2} lg={3} className="g-4"> 
-          {mockTutorials.map((tutorial) => ( 
+        <Row xs={1} md={2} lg={3} className="g-4">
+          {tutorials.map((tutorial) => (
             <Col key={tutorial.id}>
               <Card>
-                {/* Image (Add image URLs later) */}
-                {/* <Card.Img variant="top" src={tutorial.image} /> */}
                 <Card.Body>
                   <Card.Title>{tutorial.title}</Card.Title>
                   <Card.Text>
-                    {tutorial.description} 
-                    <div className="mt-2"> 
-                      <span className="badge bg-secondary me-1">{tutorial.difficulty}</span>
+                    {tutorial.description}
+                    <div className="mt-2">
+                      <span className="badge bg-secondary me-1">
+                        {tutorial.difficulty}
+                      </span>
                     </div>
-                  </Card.Text> 
-                  <Button variant="primary" href={`/tutorials/${tutorial.id}`}>
+                  </Card.Text>
+                  <Button variant="primary" onClick={() => openModal(tutorial)}>
                     View Tutorial
                   </Button>
                 </Card.Body>
@@ -66,6 +81,23 @@ function Tutorials() {
           ))}
         </Row>
       )}
+
+      {/* Modal Popup */}
+      <Modal show={showModal} onHide={closeModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            {selectedTutorial && selectedTutorial.title}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>{selectedTutorial && selectedTutorial.content}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={closeModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 }

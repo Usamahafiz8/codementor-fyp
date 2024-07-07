@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Signup.css';
-import { auth } from './firebase-config'; // Make sure this path is correct
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -16,9 +12,6 @@ function Signup() {
   });
   const navigate = useNavigate();
 
-  // Initialize Firestore
-  const db = getFirestore();
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (formData.password !== formData.confirmPassword) {
@@ -27,7 +20,7 @@ function Signup() {
     }
   
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/register`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,9 +44,6 @@ function Signup() {
       alert("Signup failed: " + error.message);
     }
   };
-  
-  
-  
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });

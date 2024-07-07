@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase-config"; // Make sure this path is correct
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -12,7 +10,7 @@ function Login() {
     event.preventDefault(); // Prevent the default form submit behavior
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/login`,
+        `${process.env.REACT_APP_API_URL}/api/auth/login`,
         {
           method: "POST",
           headers: {
@@ -24,7 +22,6 @@ function Login() {
       const data = await response.json();
       if (response.ok) {
         console.log("Logged in user:", data);
-        
         localStorage.setItem("jwt", data.token); // Store the JWT in local storage
         navigate("/"); // Navigate to the home page or dashboard after successful login
       } else {
