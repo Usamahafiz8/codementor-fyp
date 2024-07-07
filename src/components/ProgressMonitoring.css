@@ -6,3 +6,12 @@
   border-radius: 0.25rem;
   /* Placeholder styling - Replace with actual chart styling as needed */
 }
+
+
+
+.avatar-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}

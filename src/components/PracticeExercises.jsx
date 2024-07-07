@@ -1,25 +1,22 @@
-// PracticeExercises.jsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './PracticeExercises.css';
 import javaQuizQuestions from './javaQuizQuestions'; // Import quiz questions from the separate file
 
 function PracticeExercises() {
-  // Placeholder data for exercises
   const exercises = [
     { id: 1, title: "Basic Java Exercise", description: "Sharpen your Java skills with basic exercises.", difficulty: "Easy" },
     // ... more exercises
   ];
 
-  // State for managing quiz
   const [quizStarted, setQuizStarted] = useState(false);
   const [quizQuestions, setQuizQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
   const [showResult, setShowResult] = useState(false);
+  const [score, setScore] = useState(null);
 
   useEffect(() => {
-    // Function to select 10 random questions from javaQuizQuestions
     const selectRandomQuestions = () => {
       const shuffledQuestions = javaQuizQuestions.sort(() => 0.5 - Math.random());
       const selectedQuestions = shuffledQuestions.slice(0, 10);
@@ -45,34 +42,30 @@ function PracticeExercises() {
     if (currentQuestion < quizQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      // Quiz completed, calculate result
-      setShowResult(true);
+      calculateResult();
     }
   };
 
   const calculateResult = async () => {
-    // Calculate the user's score based on correct answers
-    let score = 0;
+    let calculatedScore = 0;
     userAnswers.forEach((answer, index) => {
       if (answer === quizQuestions[index].correctAnswer) {
-        score++;
+        calculatedScore++;
       }
     });
+    setScore(calculatedScore);
+    setShowResult(true);
 
-    // Display the result to the user
-    alert(`Quiz completed! Your score is ${score} out of ${quizQuestions.length}`);
-
-    // Save the quiz record to the database
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/quiz`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/quiz/store`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`, // Assuming token is stored in localStorage
         },
         body: JSON.stringify({
-          userId: 'your_user_id', // Replace with actual user ID
-          quizId: 'java_quiz_id', // Replace with actual quiz ID or pass it from your quiz component
-          score: score
+          quizId: 'java_quiz_id', // Replace with actual quiz ID or pass it dynamically
+          score: calculatedScore
         })
       });
 
@@ -108,9 +101,10 @@ function PracticeExercises() {
         <div>
           {showResult ? (
             <div>
-              <h1 className="text-center mb-4">Quiz Result</h1>
-              <div className="text-center">
-                <button onClick={calculateResult} className="btn btn-primary mt-3">Show Result</button>
+              <h1 className="text-center text-white mb-4">Quiz Result</h1>
+              <div className="text-center text-white">
+                <p>Your score is {score} out of {quizQuestions.length}</p>
+                <Link to="/" className="btn btn-primary mt-3">Back to Home</Link>
               </div>
             </div>
           ) : (

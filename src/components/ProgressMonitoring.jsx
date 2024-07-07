@@ -37,13 +37,15 @@ function ProgressMonitoring() {
           avatar: profileData.avatar || 'path/to/default/avatar.png'
         });
 
+        // Example static data for progress report
         setProgressReport({
-          coursesCompleted: 2, // Example static data
-          currentCourse: "React Fundamentals",
-          performance: "85%"
+          coursesCompleted: profileData.coursesCompleted || 0,
+          currentCourse: profileData.currentCourse || "No current course",
+          performance: profileData.performance || "0%"
         });
-        setTotalRegisteredCourses(5); // Example static data
-        setCurrentSection('Module 3'); // Example static data
+
+        setTotalRegisteredCourses(profileData.totalRegisteredCourses || 0);
+        setCurrentSection(profileData.currentSection || "No current section");
         setIsLoading(false);
       } catch (error) {
         console.error('Error fetching user profile:', error);
@@ -77,10 +79,28 @@ function ProgressMonitoring() {
               <h5 className="card-title">{userProfile.name}</h5>
               <p className="card-text">Email: {userProfile.email}</p>
               <p className="card-text">Level: {userProfile.level}</p>
+              <img src={userProfile.avatar} alt="Avatar" className="avatar-img" />
             </div>
           </div>
         </div>
-        {/* Additional cards for total registered courses, current section, progress report, and course recommendations */}
+
+        {/* Progress Report Card */}
+        <div className="col-md-8 mb-3">
+          <div className="card">
+            <div className="card-header">
+              Progress Report
+            </div>
+            <div className="card-body">
+              <p className="card-text">Courses Completed: {progressReport.coursesCompleted}</p>
+              <p className="card-text">Current Course: {progressReport.currentCourse}</p>
+              <p className="card-text">Performance: {progressReport.performance}</p>
+              <p className="card-text">Total Registered Courses: {totalRegisteredCourses}</p>
+              <p className="card-text">Current Section: {currentSection}</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Additional cards for course recommendations, upcoming sections, etc., can be added here */}
       </div>
     </div>
   );
