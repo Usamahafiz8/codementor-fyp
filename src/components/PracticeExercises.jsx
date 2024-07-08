@@ -1,11 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import './PracticeExercises.css';
-import javaQuizQuestions from './javaQuizQuestions'; // Import quiz questions from the separate file
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./PracticeExercises.css";
+import javaQuizQuestions from "./javaQuizQuestions"; // Import quiz questions from the separate file
 
 function PracticeExercises() {
   const exercises = [
-    { id: 1, title: "Basic Java Exercise", description: "Sharpen your Java skills with basic exercises.", difficulty: "Easy" },
+    {
+      id: 1,
+      title: "Basic Java Exercise",
+      description: "Sharpen your Java skills with basic exercises.",
+      difficulty: "Easy",
+    },
+    {
+      id: 1,
+      title: "Intermediate Java Exercise",
+      description: "Sharpen your Java skills with Intermediate exercises.",
+      difficulty: "Intermediate",
+    },
+    {
+      id: 1,
+      title: "Advance Java Exercise",
+      description: "Sharpen your Java skills with Advance exercises.",
+      difficulty: "Advance",
+    },
     // ... more exercises
   ];
 
@@ -18,7 +35,9 @@ function PracticeExercises() {
 
   useEffect(() => {
     const selectRandomQuestions = () => {
-      const shuffledQuestions = javaQuizQuestions.sort(() => 0.5 - Math.random());
+      const shuffledQuestions = javaQuizQuestions.sort(
+        () => 0.5 - Math.random()
+      );
       const selectedQuestions = shuffledQuestions.slice(0, 10);
       setQuizQuestions(selectedQuestions);
     };
@@ -57,22 +76,25 @@ function PracticeExercises() {
     setShowResult(true);
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/quiz/store`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`, // Assuming token is stored in localStorage
-        },
-        body: JSON.stringify({
-          quizId: 'java_quiz_id', // Replace with actual quiz ID or pass it dynamically
-          score: calculatedScore
-        })
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/quiz/store`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`, // Assuming token is stored in localStorage
+          },
+          body: JSON.stringify({
+            quizId: "java_quiz_id", // Replace with actual quiz ID or pass it dynamically
+            score: calculatedScore,
+          }),
+        }
+      );
 
       const data = await response.json();
-      console.log('Quiz record saved:', data);
+      console.log("Quiz record saved:", data);
     } catch (error) {
-      console.error('Error saving quiz record:', error.message);
+      console.error("Error saving quiz record:", error.message);
     }
   };
 
@@ -88,14 +110,23 @@ function PracticeExercises() {
                   <div className="card-body">
                     <h5 className="card-title">{exercise.title}</h5>
                     <p className="card-text">{exercise.description}</p>
-                    <p className="card-text"><small className="text-muted">Difficulty: {exercise.difficulty}</small></p>
-                    <Link to={`/exercises/${exercise.id}`} className="btn btn-primary">Start Exercise</Link>
+                    <p className="card-text">
+                      <small className="text-muted">
+                        Difficulty: {exercise.difficulty}
+                      </small>
+                    </p>
+                    {/* <Link to={`/exercises/${exercise.id}`} className="btn btn-primary">Start Exercise</Link> */}
+                    <button
+                      onClick={startQuiz}
+                      className="btn btn-primary mt-3"
+                    >
+                      Start Quiz
+                    </button>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          <button onClick={startQuiz} className="btn btn-primary mt-3">Start Quiz</button>
         </div>
       ) : (
         <div>
@@ -103,8 +134,12 @@ function PracticeExercises() {
             <div>
               <h1 className="text-center text-white mb-4">Quiz Result</h1>
               <div className="text-center text-white">
-                <p>Your score is {score} out of {quizQuestions.length}</p>
-                <Link to="/" className="btn btn-primary mt-3">Back to Home</Link>
+                <p>
+                  Your score is {score} out of {quizQuestions.length}
+                </p>
+                <Link to="/" className="btn btn-primary mt-3">
+                  Back to Home
+                </Link>
               </div>
             </div>
           ) : (
@@ -113,26 +148,38 @@ function PracticeExercises() {
                 <h1 className="text-center mb-4">Quiz</h1>
                 <div className="card">
                   <div className="card-body">
-                    <h5 className="card-title">{quizQuestions[currentQuestion].question}</h5>
+                    <h5 className="card-title">
+                      {quizQuestions[currentQuestion].question}
+                    </h5>
                     <div className="options">
-                      {quizQuestions[currentQuestion].options.map((option, index) => (
-                        <div key={index} className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="radio"
-                            name={`question-${currentQuestion}`}
-                            id={`option-${index}`}
-                            value={option}
-                            onChange={() => handleAnswerSelection(option)}
-                            checked={userAnswers[currentQuestion] === option}
-                          />
-                          <label className="form-check-label" htmlFor={`option-${index}`}>
-                            {option}
-                          </label>
-                        </div>
-                      ))}
+                      {quizQuestions[currentQuestion].options.map(
+                        (option, index) => (
+                          <div key={index} className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="radio"
+                              name={`question-${currentQuestion}`}
+                              id={`option-${index}`}
+                              value={option}
+                              onChange={() => handleAnswerSelection(option)}
+                              checked={userAnswers[currentQuestion] === option}
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor={`option-${index}`}
+                            >
+                              {option}
+                            </label>
+                          </div>
+                        )
+                      )}
                     </div>
-                    <button onClick={nextQuestion} className="btn btn-primary mt-3">Next</button>
+                    <button
+                      onClick={nextQuestion}
+                      className="btn btn-primary mt-3"
+                    >
+                      Next
+                    </button>
                   </div>
                 </div>
               </div>
