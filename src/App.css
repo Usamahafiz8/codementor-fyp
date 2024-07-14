@@ -5,11 +5,14 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('/src/Images/masab.png'); /* Adjust the path as needed */
+  background: rgba(0, 0, 0, 0.801); /* Adjust opacity as needed */
+  background-image: url('/src/Images/masab.png'); 
   background-size: cover; /* Cover the entire viewport */
   background-position: center; /* Center the image */
   background-attachment: fixed; /* Fixed background */
   background-repeat: no-repeat; /* Prevent repeating the image */
+  
+  /* Apply a semi-transparent overlay */
 }
 
 

@@ -38,7 +38,7 @@ function PracticeExercises() {
       const shuffledQuestions = javaQuizQuestions.sort(
         () => 0.5 - Math.random()
       );
-      const selectedQuestions = shuffledQuestions.slice(0, 10);
+      const selectedQuestions = shuffledQuestions.slice(0, 2);
       setQuizQuestions(selectedQuestions);
     };
 
@@ -77,15 +77,14 @@ function PracticeExercises() {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/quiz/store`,
+        `${process.env.REACT_APP_API_URL}/quiz/store`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`, // Assuming token is stored in localStorage
           },
           body: JSON.stringify({
-            quizId: "java_quiz_id", // Replace with actual quiz ID or pass it dynamically
+            userId: "6693bf42a7749b468ce7f582",
             score: calculatedScore,
           }),
         }
