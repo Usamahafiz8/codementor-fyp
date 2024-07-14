@@ -82,10 +82,10 @@ function PracticeExercises() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("jwt")}`,
           },
           body: JSON.stringify({
-            userId: "6693bf42a7749b468ce7f582",
-            score: calculatedScore,
+                        score: calculatedScore,
           }),
         }
       );
