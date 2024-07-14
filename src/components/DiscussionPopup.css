@@ -1,0 +1,34 @@
+.comments-section {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .comments-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .comment {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+  
+  .comment-bubble {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 10px 15px;
+    max-width: 80%;
+  }
+  
+  .comment-bubble strong {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .Modal.Footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
