@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import "./Tutorials.css";
 import { mockData } from "./JavatotorialData";
+import TopicList from "./TopicList";
 
 function Tutorials() {
   const [tutorials, setTutorials] = useState([]);
@@ -21,8 +22,7 @@ function Tutorials() {
   useEffect(() => {
     const fetchTutorials = async () => {
       try {
-        // Mock data for demonstration
-
+        // Simulated fetch data
         setTutorials(mockData);
         setIsLoading(false);
       } catch (error) {
@@ -45,7 +45,7 @@ function Tutorials() {
 
   return (
     <Container className="my-5">
-      <h1 className="text-center mb-4 text-white">Learning Resources</h1>
+      <h1 className="text-center mb-4">Learning Resources</h1>
 
       {isLoading && (
         <div className="text-center">
@@ -82,7 +82,7 @@ function Tutorials() {
         </Row>
       )}
 
-      {/* Modal Popup */}
+      {/* Render TopicList in modal */}
       <Modal show={showModal} onHide={closeModal}>
         <Modal.Header closeButton>
           <Modal.Title>
@@ -90,7 +90,9 @@ function Tutorials() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>{selectedTutorial && selectedTutorial.content}</p>
+          {selectedTutorial && (
+            <TopicList topics={[selectedTutorial]} /> // Pass selectedTutorial as an array
+          )}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={closeModal}>

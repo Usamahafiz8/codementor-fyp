@@ -16,3 +16,73 @@
 .card-body {
   padding: 15px; /* More internal padding */
 }
+
+
+
+/* TopicList.css */
+
+.topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 8px;
+  width: 100%;
+}
+
+.topic-card {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  transition: transform 0.3s;
+}
+
+.topic-card:hover {
+  transform: translateY(-10px);
+}
+
+.topic-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.topic-description {
+  font-size: 1em;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.topic-detail,
+.topic-code,
+.topic-output {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.topic-detail h3,
+.topic-code h3,
+.topic-output h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+pre {
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9em;
+  color: #d63384;
+}
