@@ -7,7 +7,7 @@ import Tutorials from './Tutorials';
 function LearningResources() {
   return (
     <div className="learning-resources container my-5">
-      <h1 className="text-center mb-4">Learning Resources</h1>
+      <h1 className="text-center mb-4 text-white">Learning Resources</h1>
       
       <div className="row">
         {/* Card for Tutorials */}

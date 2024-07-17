@@ -55,7 +55,7 @@ function Signup() {
         <div className="col-md-6 col-lg-5">
           <div className="card shadow">
             <div className="card-body">
-              <h2 className="card-title text-center mb-4">Signup for CodeMentor</h2>
+              <h2 className="card-title text-center mb-4 text-white">Signup for CodeMentor</h2>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label htmlFor="username" className="form-label">Username</label>

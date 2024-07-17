@@ -101,7 +101,7 @@ function PracticeExercises() {
     <div className="practice-exercises container my-5">
       {!quizStarted ? (
         <div>
-          <h1 className="text-center mb-4">Practice Exercises</h1>
+          <h1 className="text-center mb-4 text-white">Practice Exercises</h1>
           <div className="row">
             {exercises.map((exercise) => (
               <div key={exercise.id} className="col-md-4 mb-3">
@@ -144,7 +144,7 @@ function PracticeExercises() {
           ) : (
             quizQuestions.length > 0 && (
               <div>
-                <h1 className="text-center mb-4">Quiz</h1>
+                <h1 className="text-center mb-4 text-white">Quiz</h1>
                 <div className="card">
                   <div className="card-body">
                     <h5 className="card-title">

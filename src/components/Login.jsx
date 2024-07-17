@@ -39,7 +39,7 @@ function Login() {
         <div className="col-md-6 col-lg-5">
           <div className="card shadow">
             <div className="card-body">
-              <h2 className="card-title text-center mb-4">
+              <h2 className="card-title text-center mb-4 text-white">
                 Login to CodeMentor
               </h2>
               <form onSubmit={handleLogin}>

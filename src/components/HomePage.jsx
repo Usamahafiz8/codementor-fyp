@@ -81,7 +81,7 @@ function HomePage() {
 
 
 <section className="contact-us-section container my-5">
-  <h2 className="text-center mb-4">Contact Us</h2>
+  <h2 className="text-center mb-4 text-white text-white">Contact Us</h2>
   <form className="contact-form">
     <div className="form-group mb-3">
       <label htmlFor="contactName" className="form-label">Your Name</label>

@@ -4,7 +4,7 @@ import './InteractiveTools.css';
 function InteractiveTools() {
   return (
     <div className="interactive-tools container my-5">
-      <h2 className="text-center mb-4">Interactive Tools</h2>
+      <h2 className="text-center mb-4 text-white text-white">Interactive Tools</h2>
       <div className="row">
         {/* Coding Simulators */}
         <div className="col-md-4 mb-3">

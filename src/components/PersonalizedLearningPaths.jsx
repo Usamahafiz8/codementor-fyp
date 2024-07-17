@@ -12,7 +12,7 @@ function PersonalizedLearningPaths() {
 
   return (
     <div className="personalized-learning-paths container my-5">
-      <h1 className="text-center mb-4">Personalized Learning Paths</h1>
+      <h1 className="text-center mb-4 text-white">Personalized Learning Paths</h1>
       <div className="row">
         {learningPaths.map((path) => (
           <div key={path.id} className="col-lg-4 col-md-6 mb-4">

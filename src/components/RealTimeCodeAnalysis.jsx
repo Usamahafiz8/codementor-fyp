@@ -37,7 +37,7 @@ function RealTimeCodeAnalysis() {
 
   return (
     <div className="real-time-code-analysis container my-5">
-      <h1 className="text-center mb-4">Real-time Code Analysis</h1>
+      <h1 className="text-center mb-4 text-white">Real-time Code Analysis</h1>
       <div className="row">
         <div className="col-lg-6">
           <div className="card mb-4 shadow-sm">
