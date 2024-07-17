@@ -35,7 +35,7 @@ function LearningResources() {
             <div className="card-body">
               <h5 className="card-title">Interactive Tools</h5>
               <p className="card-text">Engage with interactive coding simulators and quizzes to test your knowledge.</p>
-              <Link to="/interactive-tools" className="btn btn-primary">Try Tools</Link>
+              <Link to="/module2" className="btn btn-primary">Try Tools</Link>
             </div>
           </div>
         </div>
