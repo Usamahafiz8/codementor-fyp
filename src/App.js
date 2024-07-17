@@ -16,6 +16,7 @@ import CommunityInteraction from "./components/CommunityInteraction";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import "./components/Navbar.css";
+import Documentation from "./components/Documentation";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -133,6 +134,7 @@ function App() {
           <Route path="/module4" element={<PersonalizedLearningPaths />} />
           <Route path="/module5" element={<ProgressMonitoring />} />
           <Route path="/module6" element={<CommunityInteraction />} />
+          <Route path="/documentation" element={<Documentation />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           {/* Include other routes as needed */}
