@@ -38,7 +38,7 @@ function PracticeExercises() {
       const shuffledQuestions = javaQuizQuestions.sort(
         () => 0.5 - Math.random()
       );
-      const selectedQuestions = shuffledQuestions.slice(0, 2);
+      const selectedQuestions = shuffledQuestions.slice(0, 10);
       setQuizQuestions(selectedQuestions);
     };
 
