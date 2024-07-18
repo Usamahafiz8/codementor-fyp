@@ -49,7 +49,7 @@ function HomePage() {
         <div className="card-body">
           <h5 className="card-title">Intro to java programming</h5>
           <p className="card-text">Learn the basics of Java in this beginner-friendly course.</p>
-          <Link to="/courses/web-dev" className="btn btn-primary">Learn More</Link>
+          <Link to="/module1" className="btn btn-primary">Learn More</Link>
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@ function HomePage() {
         <div className="card-body">
           <h5 className="card-title">Java Advanced Tutorial</h5>
           <p className="card-text">Learn the advanced level of Java advanced Course in this  course.</p>
-          <Link to="/courses/web-dev" className="btn btn-primary">Learn More</Link>
+          <Link to="/module1" className="btn btn-primary">Learn More</Link>
         </div>
       </div>
     </div>
@@ -69,7 +69,7 @@ function HomePage() {
         <div className="card-body">
           <h5 className="card-title"> Java Intermediate Tutorial</h5>
           <p className="card-text">Learn the intermediate level of Java in this beginner-friendly course.</p>
-          <Link to="/courses/web-dev" className="btn btn-primary">Learn More</Link>
+          <Link to="/module1" className="btn btn-primary">Learn More</Link>
         </div>
       </div>
     </div>
