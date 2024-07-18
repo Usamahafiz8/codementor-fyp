@@ -6,20 +6,47 @@ import javaQuizQuestions from "./javaQuizQuestions"; // Import quiz questions fr
 function PracticeExercises() {
   const exercises = [
     {
-      id: 1,
-      title: "Basic Java Exercise",
+      title: "Basic Java Exercise Level 1 ",
       description: "Sharpen your Java skills with basic exercises.",
       difficulty: "Easy",
     },
     {
-      id: 1,
-      title: "Intermediate Java Exercise",
+      title: "Intermediate Java Exercise level 1",
       description: "Sharpen your Java skills with Intermediate exercises.",
       difficulty: "Intermediate",
     },
     {
-      id: 1,
-      title: "Advance Java Exercise",
+      title: "Advance Java Exercise level 1",
+      description: "Sharpen your Java skills with Advance exercises.",
+      difficulty: "Advance",
+    },
+    {
+      title: "Basic Java Exercise Level 2",
+      description: "Sharpen your Java skills with basic exercises.",
+      difficulty: "Easy",
+    },
+    {
+      title: "Intermediate Java Exercise level 2",
+      description: "Sharpen your Java skills with Intermediate exercises.",
+      difficulty: "Intermediate",
+    },
+    {
+      title: "Advance Java Exercise level 2",
+      description: "Sharpen your Java skills with Advance exercises.",
+      difficulty: "Advance",
+    },
+    {
+      title: "Basic Java Exercise Level 3",
+      description: "Sharpen your Java skills with basic exercises.",
+      difficulty: "Easy",
+    },
+    {
+      title: "Intermediate Java Exercise level 3",
+      description: "Sharpen your Java skills with Intermediate exercises.",
+      difficulty: "Intermediate",
+    },
+    {
+      title: "Advance Java Exercise level 3",
       description: "Sharpen your Java skills with Advance exercises.",
       difficulty: "Advance",
     },
